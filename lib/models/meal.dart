@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+
 enum Complexity {
   Simple,
   Challenging,
@@ -10,6 +11,7 @@ enum Affordability {
   Pricey,
   Luxurious,
 }
+
 class Meal {
   final String id;
   final List<String> categories;
@@ -38,6 +40,6 @@ class Meal {
     required this.isGlutenFree,
     required this.isLactoseFree,
     required this.isVegan,
-    required this.isVegetarian
+    required this.isVegetarian,
   });
 }
