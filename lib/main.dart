@@ -25,6 +25,7 @@ class _MyAppState extends State<MyApp> {
   List<Meal> _availableMeals = DUMMY_MEALS;
   List<Meal> _favoriteMeals = [];
 
+  //cập nhật trạng thái của bộ lọc và danh sách các bữa ăn
   void _setFilters(Map<String, bool> filterData) {
     setState(() {
       _filters = filterData;
@@ -46,7 +47,7 @@ class _MyAppState extends State<MyApp> {
       }).toList();
     });
   }
-
+  //thêm hoặc xóa một món ăn yêu thích
   void _toggleFavorite(String mealId) {
     final existingIndex =
         _favoriteMeals.indexWhere((meal) => meal.id == mealId);
@@ -84,15 +85,14 @@ class _MyAppState extends State<MyApp> {
               color: Color.fromRGBO(20, 51, 51, 1),
             ),
             subtitle1: TextStyle(
-              fontSize: 20,
+              fontSize: 18,
               fontFamily: 'RobotoCondensed',
               fontWeight: FontWeight.bold,
             )),
       ),
-      // home: CategoriesScreen(),
       initialRoute: '/', // default is '/'
       routes: {
-        '/': (ctx) => TabsScreen(),
+        '/': (ctx) => TabsScreen(_favoriteMeals),
         CategoryMealsScreen.routeName: (ctx) =>
             CategoryMealsScreen(_availableMeals),
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(_toggleFavorite, _isMealFavorite),

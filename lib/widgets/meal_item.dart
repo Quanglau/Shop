@@ -18,7 +18,7 @@ class MealItem extends StatelessWidget {
       required this.affordability,
       required this.complexity,
       required this.duration,});
-
+//độ phức tạp của một bữa ăn
   String get complexityText {
     switch (complexity) {
       case Complexity.Simple:
@@ -34,7 +34,7 @@ class MealItem extends StatelessWidget {
         return 'Unknown';
     }
   }
-
+  //độ chi trả của món ăn
   String get affordabilityText {
     switch (affordability) {
       case Affordability.Affordable:
@@ -50,7 +50,7 @@ class MealItem extends StatelessWidget {
         return 'Unknown';
     }
   }
-
+  //chuyển đến trang chi tiết của một món ăn
   void selectMeal(BuildContext context) {
     Navigator.of(context)
         .pushNamed(
@@ -63,12 +63,12 @@ class MealItem extends StatelessWidget {
       }
     });
   }
-
+  //hiển thị món ăn cụ thể khi người dùng chạm vào 1 món ăn trong danh sách
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => selectMeal(context),
-      child: Card(
+      child: Card(//hiển thị một hình chữ nhật có góc bo tròn, thường được sử dụng để bao bọc một số widget khác
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
@@ -76,34 +76,34 @@ class MealItem extends StatelessWidget {
         margin: EdgeInsets.all(10),
         child: Column(
           children: <Widget>[
-            Stack(
+            Stack(//xếp các widget con của nó lên nhau theo thứ tự được xác định
               children: <Widget>[
-                ClipRRect(
+                ClipRRect(//cắt ảnh hiển thị trong hình dạng hình chữ nhật bo tròn
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
                   ),
                   child: Image.network(
                     imageUrl,
-                    height: 250,
+                    height: 300,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
                 ),
-                Positioned(
+                Positioned(// xác định vị trí của widget con trong stack.
                   bottom: 20,
                   right: 10,
                   child: Container(
                     width: 300,
                     color: Colors.black54,
                     padding: EdgeInsets.symmetric(
-                      vertical: 5,
-                      horizontal: 20,
+                      vertical: 3,
+                      horizontal: 10,
                     ),
                     child: Text(
                       title,
                       style: TextStyle(
-                        fontSize: 26,
+                        fontSize: 22,
                         color: Colors.white,
                       ),
                       softWrap: true,

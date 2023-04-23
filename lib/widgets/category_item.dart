@@ -8,7 +8,8 @@ class CategoryItem extends StatelessWidget {
   final Color color;
 
   CategoryItem(this.id, this.title, this.color);
-
+//chuyển đến màn hình danh sách các bữa ăn trong một thể loại cụ thể khi
+// người dùng nhấn vào một thể loại trong màn hình danh sách thể loại
   void selectCategory(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(
       CategoryMealsScreen.routeName,
